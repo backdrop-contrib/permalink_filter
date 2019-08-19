@@ -35,8 +35,7 @@ function permalink_filter_settings($form, &$form_state, $filter, $format) {
 
   $elements['tags'] = array(
     '#type' => 'checkboxes',
-    '#title' => t('Tags'),
-    '#description' => t('Which tags to add permalinks to.'),
+    '#title' => t('Headings to add permalinks to'),
     '#options' => array(
       'h1' => 'H1',
       'h2' => 'H2',
@@ -46,21 +45,21 @@ function permalink_filter_settings($form, &$form_state, $filter, $format) {
       'h6' => 'H6',
     ),
     '#default_value' => $settings['tags'],
+    '#attributes' => array('class' => array('container-inline')),
   );
   $elements['text'] = array(
     '#type' => 'textfield',
-    '#title' => t('Text'),
-    '#description' => t('The text to use for the permalinks. Popular examples include: #, ¶, §.'),
+    '#title' => t('Permalink text'),
+    '#description' => t('Popular examples include: #, ¶, §.'),
     '#default_value' => $settings['text'],
     '#size' => 20,
   );
   $elements['position'] = array(
     '#type' => 'radios',
-    '#title' => t('Position'),
-    '#description' => t('Where to place the permalinks relative to the heading tags.'),
+    '#title' => t('Permalink position'),
     '#options' => array(
-      'before' => t('Before'),
-      'after' => t('After'),
+      'before' => t('Before each heading'),
+      'after' => t('After each heading'),
     ),
     '#default_value' => $settings['position'],
   );
